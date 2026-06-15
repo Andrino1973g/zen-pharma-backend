@@ -3,7 +3,6 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci --omit=dev
 FROM node:20-alpine
-
 WORKDIR /app
 RUN addgroup -S pharma && adduser -S pharma -G pharma
 COPY --from=builder /app/node_modules ./node_modules
